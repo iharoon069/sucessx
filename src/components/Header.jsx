@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Bell, User, ShieldAlert, Award, Sparkles } from 'lucide-react';
+import { Bell, User, ShieldAlert, Award, Sparkles, ArrowLeft } from 'lucide-react';
 import { db, ref, onValue } from '../firebase';
 
-export default function Header({ user, onNavigate, onOpenAdminSecret }) {
+export default function Header({ user, onNavigate, onOpenAdminSecret, activeTab }) {
   const [unreadCount, setUnreadCount] = useState(0);
+  const isAuthRoute = activeTab === 'login' || activeTab === 'register';
 
   useEffect(() => {
     if (!user) return;
@@ -11,7 +12,7 @@ export default function Header({ user, onNavigate, onOpenAdminSecret }) {
     const unsubscribe = onValue(notifRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const unread = Object.values(data).filter(n => !n.read).length;
+        const unread = Object.values(data).filter((n) => !n.read).length;
         setUnreadCount(unread);
       } else {
         setUnreadCount(0);
@@ -23,9 +24,7 @@ export default function Header({ user, onNavigate, onOpenAdminSecret }) {
   return (
     <header className="glass-card mb-3 p-3 sticky-top" style={{ borderRadius: '0 0 20px 20px', zIndex: 1020 }}>
       <div className="d-flex align-items-center justify-content-between">
-        
-        {/* Brand Logo & Name */}
-        <div className="d-flex align-items-center gap-2" style={{ cursor: 'pointer' }} onClick={() => onNavigate('dashboard')}>
+        <div className="d-flex align-items-center gap-2" style={{ cursor: 'pointer' }} onClick={() => onNavigate(user ? 'dashboard' : 'landing')}>
           <div className="d-flex align-items-center justify-content-center bg-orange text-white rounded-3 p-2" style={{ background: 'linear-gradient(135deg, #ff6b00, #ff8c00)', width: 40, height: 40, boxShadow: '0 4px 12px rgba(255, 107, 0, 0.4)' }}>
             <Sparkles size={22} className="text-white" />
           </div>
@@ -37,18 +36,14 @@ export default function Header({ user, onNavigate, onOpenAdminSecret }) {
           </div>
         </div>
 
-        {/* User Stats / Admin Trigger & Notifications */}
         {user ? (
           <div className="d-flex align-items-center gap-2">
-            
-            {/* Rank badge */}
             <div className="rank-badge d-none d-sm-flex align-items-center">
               <Award size={14} />
               <span>{user.rank || 'Member'}</span>
             </div>
 
-            {/* Notifications Button */}
-            <button 
+            <button
               className="btn btn-light rounded-circle position-relative p-2 border-0 glass-card"
               onClick={() => onNavigate('notifications')}
               title="Notifications"
@@ -62,8 +57,7 @@ export default function Header({ user, onNavigate, onOpenAdminSecret }) {
               )}
             </button>
 
-            {/* User Name & Profile Button */}
-            <div 
+            <div
               className="d-flex align-items-center gap-2 bg-white px-3 py-1 rounded-pill shadow-sm"
               style={{ border: '1px solid rgba(255, 107, 0, 0.2)', cursor: 'pointer' }}
               onClick={() => onNavigate('profile')}
@@ -75,27 +69,32 @@ export default function Header({ user, onNavigate, onOpenAdminSecret }) {
                 {user.name ? user.name.split(' ')[0] : 'User'}
               </span>
             </div>
-
           </div>
         ) : (
           <div className="d-flex gap-2">
-            <button className="btn btn-sm btn-orange-outline" onClick={() => onNavigate('login')}>
-              Login
-            </button>
-            <button className="btn btn-sm btn-orange" onClick={() => onNavigate('register')}>
-              Register
-            </button>
-            {/* Secret key trigger for Admin */}
-            <button 
-              className="btn btn-sm btn-light text-muted p-2 rounded-circle"
-              onClick={onOpenAdminSecret}
-              title="Admin Portal"
-            >
-              <ShieldAlert size={16} />
-            </button>
+            {isAuthRoute ? (
+              <button className="btn btn-sm btn-orange-outline" onClick={() => onNavigate('landing')}>
+                <ArrowLeft size={15} className="me-1" /> Back Home
+              </button>
+            ) : (
+              <>
+                <button className="btn btn-sm btn-orange-outline" onClick={() => onNavigate('login')}>
+                  Login
+                </button>
+                <button className="btn btn-sm btn-orange" onClick={() => onNavigate('register')}>
+                  Register
+                </button>
+                <button
+                  className="btn btn-sm btn-light text-muted p-2 rounded-circle"
+                  onClick={onOpenAdminSecret}
+                  title="Admin Portal"
+                >
+                  <ShieldAlert size={16} />
+                </button>
+              </>
+            )}
           </div>
         )}
-
       </div>
     </header>
   );
