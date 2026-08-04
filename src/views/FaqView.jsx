@@ -33,10 +33,8 @@ export default function FaqView({ onNavigate }) {
   );
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -48,7 +46,7 @@ export default function FaqView({ onNavigate }) {
 
       {/* Search Input */}
       <div className="mb-4">
-        <div className="input-group input-group-lg glass-card border-0 shadow-sm">
+        <div className="input-group input-group-lg glass-card border-0 shadow-sm page-hero-card">
           <span className="input-group-text bg-white border-0"><Search size={20} className="text-muted" /></span>
           <input 
             type="text" 
@@ -65,7 +63,7 @@ export default function FaqView({ onNavigate }) {
         {filteredFaqs.map((faq, idx) => {
           const isOpen = openIdx === idx;
           return (
-            <div key={idx} className="glass-card border-0 shadow-sm overflow-hidden">
+            <div key={idx} className="glass-card border-0 shadow-sm overflow-hidden page-card">
               <div 
                 className="p-3.5 d-flex justify-content-between align-items-center cursor-pointer bg-white"
                 onClick={() => setOpenIdx(isOpen ? null : idx)}

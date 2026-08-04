@@ -18,10 +18,8 @@ export default function SupportView({ onNavigate }) {
   }, []);
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -32,7 +30,7 @@ export default function SupportView({ onNavigate }) {
       </div>
 
       {/* Hero Banner */}
-      <div className="glass-card p-4 mb-4 text-center border-0 shadow-sm" style={{ background: 'linear-gradient(135deg, rgba(255,107,0,0.1), rgba(255,140,0,0.05))' }}>
+      <div className="glass-card p-4 mb-4 text-center border-0 shadow-sm page-hero-card">
         <div className="mx-auto rounded-circle d-flex align-items-center justify-content-center mb-3 shadow" style={{ width: 64, height: 64, background: 'linear-gradient(135deg, #ff6b00, #ff8c00)' }}>
           <Headset size={32} className="text-white" />
         </div>

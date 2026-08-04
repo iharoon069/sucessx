@@ -93,10 +93,8 @@ export default function InviteView({ user, onNavigate }) {
   const totalTeamCount = lv1List.length + lv2List.length + lv3List.length;
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -107,7 +105,7 @@ export default function InviteView({ user, onNavigate }) {
       </div>
 
       {/* REFERRAL LINK COPY CARD */}
-      <div className="glass-card p-4 mb-4 border-0 shadow-sm">
+      <div className="glass-card p-4 mb-4 border-0 shadow-sm page-hero-card">
         <h6 className="fw-bold text-dark mb-2">Your Unique Referral Link</h6>
         
         <div className="p-3 bg-white rounded-4 border mb-3">

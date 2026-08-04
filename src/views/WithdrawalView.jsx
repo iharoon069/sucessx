@@ -113,10 +113,8 @@ export default function WithdrawalView({ user, onNavigate, onUserUpdate }) {
   ];
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center justify-content-between mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center justify-content-between mb-1">
         <div className="d-flex align-items-center gap-2">
           <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
             <ArrowLeft size={20} />
@@ -133,7 +131,7 @@ export default function WithdrawalView({ user, onNavigate, onUserUpdate }) {
       </div>
 
       {/* ADMIN INSTRUCTION RULES CARD */}
-      <div className="glass-card p-3 mb-4 bg-white border-0 shadow-sm">
+      <div className="glass-card p-3 mb-4 bg-white border-0 shadow-sm page-hero-card">
         <h6 className="fw-bold text-dark mb-2 d-flex align-items-center gap-1 small">
           <ShieldCheck size={16} className="text-orange" style={{ color: '#ff6b00' }} /> Withdrawal Instructions & Limits
         </h6>
@@ -166,7 +164,7 @@ export default function WithdrawalView({ user, onNavigate, onUserUpdate }) {
       </div>
 
       {/* FORM CARD */}
-      <div className="glass-card p-4">
+      <div className="glass-card p-4 page-hero-card">
         
         <form onSubmit={handleSubmitWithdrawal}>
           {error && (

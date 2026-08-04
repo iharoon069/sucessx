@@ -115,10 +115,8 @@ export default function BonusView({ user, onNavigate, onUserUpdate }) {
   const totalClaimedBonus = Object.values(bonusClaims).reduce((acc, c) => acc + (c.amount || 0), 0);
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center justify-content-between mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center justify-content-between mb-1">
         <div className="d-flex align-items-center gap-2">
           <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
             <ArrowLeft size={20} />
@@ -131,7 +129,7 @@ export default function BonusView({ user, onNavigate, onUserUpdate }) {
       </div>
 
       {/* OVERVIEW STATS CARD */}
-      <div className="glass-card p-4 mb-4 text-center border-0 shadow-sm" style={{ background: 'linear-gradient(135deg, rgba(255,107,0,0.1), rgba(255,140,0,0.05))' }}>
+      <div className="glass-card p-4 mb-4 text-center border-0 shadow-sm page-hero-card">
         <div className="row g-3">
           <div className="col-6 border-end">
             <span className="text-muted small fw-bold text-uppercase">Lv1 Team Deposit</span>
@@ -158,7 +156,7 @@ export default function BonusView({ user, onNavigate, onUserUpdate }) {
 
           return (
             <div key={tier.id} className="col-12 col-md-6">
-              <div className="glass-card p-3 border-0 shadow-sm d-flex align-items-center justify-content-between">
+              <div className="glass-card p-3 border-0 shadow-sm d-flex align-items-center justify-content-between page-card">
                 
                 <div className="d-flex align-items-center gap-3">
                   <div className="rounded-circle d-flex align-items-center justify-content-center text-white p-3 shadow-sm" style={{ background: tier.rankColor, width: 50, height: 50 }}>

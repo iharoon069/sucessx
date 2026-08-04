@@ -92,10 +92,8 @@ export default function RecordView({ user, onNavigate }) {
   };
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -106,7 +104,7 @@ export default function RecordView({ user, onNavigate }) {
       </div>
 
       {/* TABS */}
-      <div className="d-flex overflow-x-auto gap-2 mb-4 pb-2 border-bottom">
+      <div className="d-flex overflow-x-auto gap-2 mb-4 pb-2 border-bottom page-soft-pill" style={{ background: 'transparent', border: '0' }}>
         <button 
           className={`btn btn-sm rounded-pill px-3 py-2 fw-bold text-nowrap ${activeTab === 'deposit' ? 'btn-orange' : 'btn-light'}`}
           onClick={() => setActiveTab('deposit')}

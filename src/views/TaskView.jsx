@@ -94,10 +94,8 @@ export default function TaskView({ user, onNavigate, onUserUpdate }) {
   };
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Bar */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -107,8 +105,7 @@ export default function TaskView({ user, onNavigate, onUserUpdate }) {
         </div>
       </div>
 
-      {/* TOTAL CLAIM EARNING HEADER CARD */}
-      <div className="glass-card p-4 mb-4 text-center border-0 shadow-sm" style={{ background: 'linear-gradient(135deg, rgba(255,107,0,0.1), rgba(255,140,0,0.05))' }}>
+      <div className="glass-card p-4 mb-4 text-center border-0 shadow-sm page-hero-card">
         <span className="text-muted small fw-bold text-uppercase tracking-wider">Total Claim Earnings</span>
         <h2 className="fw-extrabold text-orange m-0 display-6" style={{ color: '#ff6b00' }}>
           ${totalTaskEarnings.toFixed(2)}
@@ -139,7 +136,7 @@ export default function TaskView({ user, onNavigate, onUserUpdate }) {
 
             return (
               <div key={plan.id} className="col-12 col-md-6">
-                <div className="glass-card p-4 border-0 shadow-sm h-100">
+                <div className="glass-card p-4 border-0 shadow-sm h-100 page-card">
                   
                   <div className="d-flex justify-content-between align-items-start mb-3">
                     <div>

@@ -85,10 +85,8 @@ export default function SpinView({ user, onNavigate, onUserUpdate }) {
   };
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center justify-content-between mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center justify-content-between mb-1">
         <div className="d-flex align-items-center gap-2">
           <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
             <ArrowLeft size={20} />
@@ -105,7 +103,7 @@ export default function SpinView({ user, onNavigate, onUserUpdate }) {
       </div>
 
       {/* WHEEL SECTION */}
-      <div className="glass-card p-4 mb-4 text-center position-relative overflow-hidden">
+      <div className="glass-card p-4 mb-4 text-center position-relative overflow-hidden page-hero-card">
         
         <p className="text-muted small mb-3">
           Each $10 plan purchase awards 1 spin. Win guaranteed prizes up to $0.50!
@@ -155,7 +153,7 @@ export default function SpinView({ user, onNavigate, onUserUpdate }) {
         <History size={18} className="text-orange" style={{ color: '#ff6b00' }} /> Spin History Logs
       </h6>
 
-      <div className="glass-card p-3">
+      <div className="glass-card p-3 page-card">
         {spinHistory.length === 0 ? (
           <div className="text-center py-3 text-muted small">No spin history recorded yet.</div>
         ) : (

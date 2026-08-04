@@ -143,10 +143,8 @@ export default function SalaryView({ user, onNavigate, onUserUpdate }) {
   };
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -157,7 +155,7 @@ export default function SalaryView({ user, onNavigate, onUserUpdate }) {
       </div>
 
       {/* OVERVIEW STATS CARD */}
-      <div className="glass-card p-4 mb-4 border-0 shadow-sm" style={{ background: 'linear-gradient(135deg, rgba(255,107,0,0.1), rgba(255,140,0,0.05))' }}>
+      <div className="glass-card p-4 mb-4 border-0 shadow-sm page-hero-card">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <div>
             <span className="text-muted small fw-bold text-uppercase">Total Downline Team Deposits</span>
@@ -208,7 +206,7 @@ export default function SalaryView({ user, onNavigate, onUserUpdate }) {
 
           return (
             <div key={t.tier} className="col-12 col-md-6">
-              <div className={`glass-card p-3 border-0 shadow-sm ${isReached ? 'border-start border-4 border-success' : ''}`}>
+              <div className={`glass-card p-3 border-0 shadow-sm page-card ${isReached ? 'border-start border-4 border-success' : ''}`}>
                 
                 <div className="d-flex justify-content-between align-items-center mb-2">
                   <h6 className="fw-bold text-dark m-0">{t.name}</h6>

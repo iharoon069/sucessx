@@ -132,10 +132,8 @@ export default function DepositView({ user, onNavigate }) {
   };
 
   return (
-    <div className="container py-2">
-      
-      {/* Top Header */}
-      <div className="d-flex align-items-center gap-3 mb-3">
+    <div className="container py-2 page-shell">
+      <div className="d-flex align-items-center gap-3 mb-1">
         <button className="btn btn-light rounded-circle p-2 border-0 shadow-sm" onClick={() => step === 2 ? setStep(1) : onNavigate('dashboard')}>
           <ArrowLeft size={20} />
         </button>
@@ -230,8 +228,15 @@ export default function DepositView({ user, onNavigate }) {
         </div>
       ) : (
         /* STEP 2: Instructions & TRX Proof */
-        <div className="glass-card p-4">
-          
+        <div className="glass-card p-4 page-hero-card">
+          <div className="d-flex align-items-center justify-content-between mb-3">
+            <div>
+              <h6 className="fw-bold mb-1 text-dark">Payment Instructions</h6>
+              <small className="text-muted">Send the exact amount and upload the proof.</small>
+            </div>
+            <span className="page-badge-pill">Secure</span>
+          </div>
+
           {/* Amount Badge */}
           <div className="text-center p-3 rounded-4 bg-orange text-white mb-4 shadow-sm" style={{ background: 'linear-gradient(135deg, #ff6b00, #ff8c00)' }}>
             <small className="text-white-50 text-uppercase fw-bold">Required Deposit Amount</small>
